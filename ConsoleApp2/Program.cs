@@ -51,7 +51,7 @@ namespace TitleCapitalizationTool
 							j = exception.Length - 1;
 						}
 					}
-					if (result == true)
+					if (result)
 					{
 						arraytitle[i] = char.ToUpper(arraytitle[i][0]).ToString() + arraytitle[i].Remove(0, 1);
 					}
