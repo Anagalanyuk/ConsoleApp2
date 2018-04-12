@@ -48,7 +48,7 @@ namespace TitleCapitalizationTool
 						if (arraytitle[i] == exception[j])
 						{
 							result = false;
-							j = exception.Length - 1;
+							break;
 						}
 					}
 					if (result)
