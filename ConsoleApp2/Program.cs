@@ -36,7 +36,7 @@ namespace TitleCapitalizationTool
 			StringBuilder titleadjustment = new StringBuilder();
 			arraytitle[0] = char.ToUpper(arraytitle[0][0]).ToString() + arraytitle[0].Remove(0, 1);
 			arraytitle[arraytitle.Length - 1] = char.ToUpper(arraytitle[arraytitle.Length - 1][0]).ToString() + arraytitle[arraytitle.Length - 1].Remove(0, 1);
-			string[] exception = { "a", "an", "the", "and", "but", "for", "nor", "so", "yet", "at", "by", "in", "of", "on", "or", "out", "to", "up" };
+			string[] exception = { "a", "an", "at" , "and", "but" , "by" , "for", "in","nor", "of", "on", "or", "out", "so" , "the" , "to" , "up" , "yet", };
 			bool result;
 			for (int i = 0; i < arraytitle.Length; ++i)
 			{
