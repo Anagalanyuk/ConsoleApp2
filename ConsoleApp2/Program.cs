@@ -33,7 +33,7 @@ namespace TitleCapitalizationTool
 			title = title.Trim();
 			title = title.ToLower();
 			string[] arraytitle = title.Split(' ');
-			StringBuilder Temp = new StringBuilder();
+			StringBuilder titleadjustment = new StringBuilder();
 			arraytitle[0] = char.ToUpper(arraytitle[0][0]).ToString() + arraytitle[0].Remove(0, 1);
 			arraytitle[arraytitle.Length - 1] = char.ToUpper(arraytitle[arraytitle.Length - 1][0]).ToString() + arraytitle[arraytitle.Length - 1].Remove(0, 1); ;
 			string[] exception = { "a", "an", "the", "and", "but", "for", "nor", "so", "yet", "at", "by", "in", "of", "on", "or", "out", "to", "up" };
@@ -55,39 +55,39 @@ namespace TitleCapitalizationTool
 					{
 						arraytitle[i] = char.ToUpper(arraytitle[i][0]).ToString() + arraytitle[i].Remove(0, 1);
 					}
-					Temp.Append(arraytitle[i]);
-					Temp.Append(' ');
+					titleadjustment.Append(arraytitle[i]);
+					titleadjustment.Append(' ');
 				}
 			}
 			StringBuilder newtitle = new StringBuilder();
-			for (int i = 0, j = 0; i < Temp.Length; ++i, ++j)
+			for (int i = 0, j = 0; i < titleadjustment.Length; ++i, ++j)
 			{
-				if (Temp[i] == ',' && Temp[i - 1] == ' ' || Temp[i] == ':' && Temp[i - 1] == ' ' || Temp[i] == ';' && Temp[i - 1] == ' ' ||
-					Temp[i] == '?' && Temp[i - 1] == ' ' || Temp[i] == '.' && Temp[i - 1] == ' ' || Temp[i] == '!' && Temp[i - 1] == ' ')
+				if (titleadjustment[i] == ',' && titleadjustment[i - 1] == ' ' || titleadjustment[i] == ':' && titleadjustment[i - 1] == ' ' || titleadjustment[i] == ';' && titleadjustment[i - 1] == ' ' ||
+					titleadjustment[i] == '?' && titleadjustment[i - 1] == ' ' || titleadjustment[i] == '.' && titleadjustment[i - 1] == ' ' || titleadjustment[i] == '!' && titleadjustment[i - 1] == ' ')
 				{
 					--j;
-					Temp.Length += 1;
+					titleadjustment.Length += 1;
 				}
-				Temp[j] = Temp[i];
+				titleadjustment[j] = titleadjustment[i];
 			}
-			for (int i = 0; i < Temp.Length; ++i)
+			for (int i = 0; i < titleadjustment.Length; ++i)
 			{
-				if (Temp[i] == ',' && Temp[i + 1] != ' ' || Temp[i] == ':' && Temp[i + 1] != ' ' || Temp[i] == ';' && Temp[i + 1] != ' ' ||
-					 Temp[i] == '?' && Temp[i + 1] != ' ' || Temp[i] == '.' && Temp[i + 1] != ' ' || Temp[i] == '!' && Temp[i + 1] != ' ' && Temp[i + 1] != '!')
+				if (titleadjustment[i] == ',' && titleadjustment[i + 1] != ' ' || titleadjustment[i] == ':' && titleadjustment[i + 1] != ' ' || titleadjustment[i] == ';' && titleadjustment[i + 1] != ' ' ||
+					 titleadjustment[i] == '?' && titleadjustment[i + 1] != ' ' || titleadjustment[i] == '.' && titleadjustment[i + 1] != ' ' || titleadjustment[i] == '!' && titleadjustment[i + 1] != ' ' && titleadjustment[i + 1] != '!')
 				{
-					newtitle.Append(Temp[i]);
+					newtitle.Append(titleadjustment[i]);
 					newtitle.Append(' ');
 				}
-				else if (Temp[i] == '-' && Temp[i - 1] != ' ')
+				else if (titleadjustment[i] == '-' && titleadjustment[i - 1] != ' ')
 				{
 					newtitle.Append(' ');
 					newtitle.Append('-');
 					newtitle.Append(' ');
-					Temp[i + 1] = char.ToUpper(Temp[i + 1]);
+					titleadjustment[i + 1] = char.ToUpper(titleadjustment[i + 1]);
 				}
 				else
 				{
-					newtitle.Append(Temp[i]);
+					newtitle.Append(titleadjustment[i]);
 				}
 			}
 			Console.WriteLine(newtitle);
