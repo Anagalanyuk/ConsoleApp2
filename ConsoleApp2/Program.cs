@@ -3,18 +3,18 @@ using System.Text;
 
 namespace TitleCapitalizationTool
 {
-	class Program
+	class  Program
 	{
 		static void Main(string[] args)
 		{
-			string ToCapitalize = "Enter title to capitalize: ";
-			Console.Write(ToCapitalize);
+			string toсapitalize = "Enter title to capitalize: ";
+			Console.Write(toсapitalize);
 			Console.ForegroundColor = ConsoleColor.Red;
-			char FirstSymbol = ' ';
-			while (FirstSymbol == ' ' || FirstSymbol == '\r')
+			char firstsymbol = ' ';
+			while (firstsymbol == ' ' || firstsymbol == '\r')
 			{
-				FirstSymbol = Console.ReadKey().KeyChar;
-				if (FirstSymbol == '\r')
+				firstsymbol = Console.ReadKey().KeyChar;
+				if (firstsymbol == '\r')
 				{
 					Console.SetCursorPosition(27, 0);
 				}
@@ -23,29 +23,29 @@ namespace TitleCapitalizationTool
 					Console.Write('\b');
 				}
 			}
-			string Title = FirstSymbol.ToString();
-			Console.Write(FirstSymbol);
-			Title += Console.ReadLine();
+			string title = firstsymbol.ToString();
+			Console.Write(firstsymbol);
+			title += Console.ReadLine();
 			Console.ForegroundColor = ConsoleColor.Gray;
-			string CapitalizedTitle = "Capitalized title: ";
-			Console.Write(CapitalizedTitle);
+			string capitalizedtitle = "Capitalized title: ";
+			Console.Write(capitalizedtitle);
 			Console.ForegroundColor = ConsoleColor.Green;
-			Title = Title.Trim();
-			Title = Title.ToLower();
-			string[] ArrayTitle = Title.Split(' ');
+			title = title.Trim();
+			title = title.ToLower();
+			string[] arraytitle = title.Split(' ');
 			StringBuilder Temp = new StringBuilder();
-			ArrayTitle[0] = char.ToUpper(ArrayTitle[0][0]).ToString() + ArrayTitle[0].Remove(0, 1);
-			ArrayTitle[ArrayTitle.Length - 1] = char.ToUpper(ArrayTitle[ArrayTitle.Length - 1][0]).ToString() + ArrayTitle[ArrayTitle.Length - 1].Remove(0, 1); ;
+			arraytitle[0] = char.ToUpper(arraytitle[0][0]).ToString() + arraytitle[0].Remove(0, 1);
+			arraytitle[arraytitle.Length - 1] = char.ToUpper(arraytitle[arraytitle.Length - 1][0]).ToString() + arraytitle[arraytitle.Length - 1].Remove(0, 1); ;
 			string[] exception = { "a", "an", "the", "and", "but", "for", "nor", "so", "yet", "at", "by", "in", "of", "on", "or", "out", "to", "up" };
 			bool result;
-			for (int i = 0; i < ArrayTitle.Length; ++i)
+			for (int i = 0; i < arraytitle.Length; ++i)
 			{
 				result = true;
-				if (ArrayTitle[i] != "")
+				if (arraytitle[i] != "")
 				{
 					for (int j = 0; j < exception.Length - 1; ++j)
 					{
-						if (ArrayTitle[i] == exception[j])
+						if (arraytitle[i] == exception[j])
 						{
 							result = false;
 							j = exception.Length - 1;
@@ -53,13 +53,13 @@ namespace TitleCapitalizationTool
 					}
 					if (result == true)
 					{
-						ArrayTitle[i] = char.ToUpper(ArrayTitle[i][0]).ToString() + ArrayTitle[i].Remove(0, 1);
+						arraytitle[i] = char.ToUpper(arraytitle[i][0]).ToString() + arraytitle[i].Remove(0, 1);
 					}
-					Temp.Append(ArrayTitle[i]);
+					Temp.Append(arraytitle[i]);
 					Temp.Append(' ');
 				}
 			}
-			StringBuilder NewTitle = new StringBuilder();
+			StringBuilder newtitle = new StringBuilder();
 			for (int i = 0, j = 0; i < Temp.Length; ++i, ++j)
 			{
 				if (Temp[i] == ',' && Temp[i - 1] == ' ' || Temp[i] == ':' && Temp[i - 1] == ' ' || Temp[i] == ';' && Temp[i - 1] == ' ' ||
@@ -75,22 +75,22 @@ namespace TitleCapitalizationTool
 				if (Temp[i] == ',' && Temp[i + 1] != ' ' || Temp[i] == ':' && Temp[i + 1] != ' ' || Temp[i] == ';' && Temp[i + 1] != ' ' ||
 					 Temp[i] == '?' && Temp[i + 1] != ' ' || Temp[i] == '.' && Temp[i + 1] != ' ' || Temp[i] == '!' && Temp[i + 1] != ' ' && Temp[i + 1] != '!')
 				{
-					NewTitle.Append(Temp[i]);
-					NewTitle.Append(' ');
+					newtitle.Append(Temp[i]);
+					newtitle.Append(' ');
 				}
 				else if (Temp[i] == '-' && Temp[i - 1] != ' ')
 				{
-					NewTitle.Append(' ');
-					NewTitle.Append('-');
-					NewTitle.Append(' ');
+					newtitle.Append(' ');
+					newtitle.Append('-');
+					newtitle.Append(' ');
 					Temp[i + 1] = char.ToUpper(Temp[i + 1]);
 				}
 				else
 				{
-					NewTitle.Append(Temp[i]);
+					newtitle.Append(Temp[i]);
 				}
 			}
-			Console.WriteLine(NewTitle);
+			Console.WriteLine(newtitle);
 			Console.ResetColor();
 		}
 	}
