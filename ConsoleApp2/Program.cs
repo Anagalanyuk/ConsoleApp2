@@ -5,7 +5,7 @@ namespace TitleCapitalizationTool
 {
 	internal class  Program
 	{
-		static void Main(string[] args)
+		public static void Main(string[] args)
 		{
 			string toсapitalize = "Enter title to capitalize: ";
 			Console.Write(toсapitalize);
