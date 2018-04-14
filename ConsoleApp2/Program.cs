@@ -7,14 +7,14 @@ namespace TitleCapitalizationTool
 	{
 		public static void Main(string[] args)
 		{
-			string toсapitalize = "Enter title to capitalize: ";
-			Console.Write(toсapitalize);
+			string toCapitalize = "Enter title to capitalize: ";
+			Console.Write(toCapitalize);
 			Console.ForegroundColor = ConsoleColor.Red;
-			char firstsymbol = ' ';
-			while (firstsymbol == ' ' || firstsymbol == '\r')
+			char firstSymbol = ' ';
+			while (firstSymbol == ' ' || firstSymbol == '\r')
 			{
-				firstsymbol = Console.ReadKey().KeyChar;
-				if (firstsymbol == '\r')
+				firstSymbol = Console.ReadKey().KeyChar;
+				if (firstSymbol == '\r')
 				{
 					Console.SetCursorPosition(27, 0);
 				}
@@ -23,29 +23,29 @@ namespace TitleCapitalizationTool
 					Console.Write('\b');
 				}
 			}
-			string title = firstsymbol.ToString();
-			Console.Write(firstsymbol);
+			string title = firstSymbol.ToString();
+			Console.Write(firstSymbol);
 			title += Console.ReadLine();
 			Console.ForegroundColor = ConsoleColor.Gray;
-			string capitalizedtitle = "Capitalized title: ";
-			Console.Write(capitalizedtitle);
+			string capitalizedTitle = "Capitalized title: ";
+			Console.Write(capitalizedTitle);
 			Console.ForegroundColor = ConsoleColor.Green;
 			title = title.Trim();
 			title = title.ToLower();
-			string[] arraytitle = title.Split(' ');
-			StringBuilder titleadjustment = new StringBuilder();
-			arraytitle[0] = char.ToUpper(arraytitle[0][0]).ToString() + arraytitle[0].Remove(0, 1);
-			arraytitle[arraytitle.Length - 1] = char.ToUpper(arraytitle[arraytitle.Length - 1][0]).ToString() + arraytitle[arraytitle.Length - 1].Remove(0, 1);
+			string[] arrayTitle = title.Split(' ');
+			StringBuilder titleAdjustment = new StringBuilder();
+			arrayTitle[0] = char.ToUpper(arrayTitle[0][0]).ToString() + arrayTitle[0].Remove(0, 1);
+			arrayTitle[arrayTitle.Length - 1] = char.ToUpper(arrayTitle[arrayTitle.Length - 1][0]).ToString() + arrayTitle[arrayTitle.Length - 1].Remove(0, 1);
 			string[] exception = { "a", "an", "and" , "at", "but" , "by" , "for", "in","nor", "of", "on", "or", "out", "so" , "the" , "to" , "up" , "yet", };
 			bool result;
-			for (int i = 0; i < arraytitle.Length; ++i)
+			for (int i = 0; i < arrayTitle.Length; ++i)
 			{
 				result = true;
-				if (arraytitle[i] != "")
+				if (arrayTitle[i] != "")
 				{
 					for (int j = 0; j < exception.Length - 1; ++j)
 					{
-						if (arraytitle[i] == exception[j])
+						if (arrayTitle[i] == exception[j])
 						{
 							result = false;
 							break;
@@ -53,42 +53,42 @@ namespace TitleCapitalizationTool
 					}
 					if (result)
 					{
-						arraytitle[i] = char.ToUpper(arraytitle[i][0]).ToString() + arraytitle[i].Remove(0, 1);
+						arrayTitle[i] = char.ToUpper(arrayTitle[i][0]).ToString() + arrayTitle[i].Remove(0, 1);
 					}
-					titleadjustment.Append(arraytitle[i]);
-					titleadjustment.Append(' ');
+					titleAdjustment.Append(arrayTitle[i]);
+					titleAdjustment.Append(' ');
 				}
 			}
-			StringBuilder newtitle = new StringBuilder();
-			for (int i = 0, j = 0; i < titleadjustment.Length; ++i, ++j)
+			StringBuilder newTitle = new StringBuilder();
+			for (int i = 0, j = 0; i < titleAdjustment.Length; ++i, ++j)
 			{
-				if (titleadjustment[i] == ',' && titleadjustment[i - 1] == ' ' || titleadjustment[i] == ':' && titleadjustment[i - 1] == ' ' || titleadjustment[i] == ';' && titleadjustment[i - 1] == ' ' ||
-					titleadjustment[i] == '?' && titleadjustment[i - 1] == ' ' || titleadjustment[i] == '.' && titleadjustment[i - 1] == ' ' || titleadjustment[i] == '!' && titleadjustment[i - 1] == ' ')
+				if (titleAdjustment[i] == ',' && titleAdjustment[i - 1] == ' ' || titleAdjustment[i] == ':' && titleAdjustment[i - 1] == ' ' || titleAdjustment[i] == ';' && titleAdjustment[i - 1] == ' ' ||
+					titleAdjustment[i] == '?' && titleAdjustment[i - 1] == ' ' || titleAdjustment[i] == '.' && titleAdjustment[i - 1] == ' ' || titleAdjustment[i] == '!' && titleAdjustment[i - 1] == ' ')
 				{
 					--j;
-					titleadjustment.Length += 1;
+					titleAdjustment.Length += 1;
 				}
-				titleadjustment[j] = titleadjustment[i];
+				titleAdjustment[j] = titleAdjustment[i];
 			}
-			for (int i = 0; i < titleadjustment.Length; ++i)
+			for (int i = 0; i < titleAdjustment.Length; ++i)
 			{
-				if (titleadjustment[i] == ',' && titleadjustment[i + 1] != ' ' || titleadjustment[i] == ':' && titleadjustment[i + 1] != ' ' || titleadjustment[i] == ';' && titleadjustment[i + 1] != ' ' ||
-					 titleadjustment[i] == '?' && titleadjustment[i + 1] != ' ' || titleadjustment[i] == '.' && titleadjustment[i + 1] != ' ' || titleadjustment[i] == '!' && titleadjustment[i + 1] != ' ' && titleadjustment[i + 1] != '!')
+				if (titleAdjustment[i] == ',' && titleAdjustment[i + 1] != ' ' || titleAdjustment[i] == ':' && titleAdjustment[i + 1] != ' ' || titleAdjustment[i] == ';' && titleAdjustment[i + 1] != ' ' ||
+					 titleAdjustment[i] == '?' && titleAdjustment[i + 1] != ' ' || titleAdjustment[i] == '.' && titleAdjustment[i + 1] != ' ' || titleAdjustment[i] == '!' && titleAdjustment[i + 1] != ' ' && titleAdjustment[i + 1] != '!')
 				{
-					newtitle.Append(titleadjustment[i]);
-					newtitle.Append(' ');
+					newTitle.Append(titleAdjustment[i]);
+					newTitle.Append(' ');
 				}
-				else if (titleadjustment[i] == '-' && titleadjustment[i - 1] != ' ')
+				else if (titleAdjustment[i] == '-' && titleAdjustment[i - 1] != ' ')
 				{
-					newtitle.Append(" - ");
-					titleadjustment[i + 1] = char.ToUpper(titleadjustment[i + 1]);
+					newTitle.Append(" - ");
+					titleAdjustment[i + 1] = char.ToUpper(titleAdjustment[i + 1]);
 				}
 				else
 				{
-					newtitle.Append(titleadjustment[i]);
+					newTitle.Append(titleAdjustment[i]);
 				}
 			}
-			Console.WriteLine(newtitle);
+			Console.WriteLine(newTitle);
 			Console.ResetColor();
 		}
 	}
