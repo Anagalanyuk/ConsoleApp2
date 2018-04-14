@@ -80,9 +80,7 @@ namespace TitleCapitalizationTool
 				}
 				else if (titleadjustment[i] == '-' && titleadjustment[i - 1] != ' ')
 				{
-					newtitle.Append(' ');
-					newtitle.Append('-');
-					newtitle.Append(' ');
+					newtitle.Append(" - ");
 					titleadjustment[i + 1] = char.ToUpper(titleadjustment[i + 1]);
 				}
 				else
