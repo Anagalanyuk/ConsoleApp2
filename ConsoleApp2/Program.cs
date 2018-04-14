@@ -10,22 +10,12 @@ namespace TitleCapitalizationTool
 			string toCapitalize = "Enter title to capitalize: ";
 			Console.Write(toCapitalize);
 			Console.ForegroundColor = ConsoleColor.Red;
-			char firstSymbol = ' ';
-			while (firstSymbol == ' ' || firstSymbol == '\r')
+			string title = Console.ReadLine();
+			while(title.Length == 0)
 			{
-				firstSymbol = Console.ReadKey().KeyChar;
-				if (firstSymbol == '\r')
-				{
-					Console.SetCursorPosition(27, 0);
-				}
-				else
-				{
-					Console.Write('\b');
-				}
+				Console.SetCursorPosition(27, 0);
+				title = Console.ReadLine();
 			}
-			string title = firstSymbol.ToString();
-			Console.Write(firstSymbol);
-			title += Console.ReadLine();
 			Console.ForegroundColor = ConsoleColor.Gray;
 			string capitalizedTitle = "Capitalized title: ";
 			Console.Write(capitalizedTitle);
