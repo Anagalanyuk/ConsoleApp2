@@ -80,10 +80,10 @@ namespace TitleCapitalizationTool
 					    i += 1;
 					}
 				}
+				y += 3;
 				Console.WriteLine(newTitle);
 				Console.ResetColor();
 				Console.WriteLine();
-				y += 3;
 			}
 		}
 	}
