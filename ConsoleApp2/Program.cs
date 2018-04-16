@@ -57,7 +57,7 @@ namespace TitleCapitalizationTool
 				for (int i = 0; i < titleAdjustment.Length - 1; ++i)
 				{
 					bool result = false;
-					for(int j = 0; j < punctuationMarks.Length; ++j)
+					for (int j = 0; j < punctuationMarks.Length; ++j)
 					{
 						if (titleAdjustment[i] == ' ' && titleAdjustment[i + 1] == punctuationMarks[j])
 						{
@@ -68,12 +68,12 @@ namespace TitleCapitalizationTool
 							result = true;
 						}
 					}
-					if(titleAdjustment[i] == '-')
+					if (titleAdjustment[i] == '-')
 					{
 						newTitle.Append(' ');
 					}
 					newTitle.Append(titleAdjustment[i]);
-					if(result)
+					if (result)
 					{
 						newTitle.Append(' ');
 					    newTitle.Append(titleAdjustment[i + 1].ToString().ToUpper());
