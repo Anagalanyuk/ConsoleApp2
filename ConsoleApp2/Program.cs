@@ -3,7 +3,7 @@ using System.Text;
 
 namespace TitleCapitalizationTool
 {
-	internal  class  Program
+	internal class Program
 	{
 		public static void Main()
 		{
