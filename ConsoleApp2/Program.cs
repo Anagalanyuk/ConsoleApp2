@@ -69,21 +69,21 @@ namespace TitleCapitalizationTool
 			return newTitle;
 		}
 
-		public static void Main(string[] args)
+		public static void Main(string[] titles)
 		{
 			int coordinateCursorX = 27;
 			int coordinateCursorY = 0;
-			if (args.Length != 0)
+			if (titles.Length != 0)
 			{
-				for (int i = 0; i < args.Length; ++i)
+				for (int i = 0; i < titles.Length; ++i)
 				{
 					Console.Write("Original Title: ");
 					Console.ForegroundColor = ConsoleColor.Red;
-					Console.WriteLine(args[i]);
+					Console.WriteLine(titles[i]);
 					Console.ResetColor();
 					Console.Write("Capitalized Title: ");
 					Console.ForegroundColor = ConsoleColor.Green;
-					Console.Write(HeaderEditor(args[0]));
+					Console.Write(HeaderEditor(titles[0]));
 					Console.WriteLine();
 					Console.ResetColor();
 					Console.WriteLine();
