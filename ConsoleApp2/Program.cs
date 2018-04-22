@@ -106,7 +106,6 @@ namespace TitleCapitalizationTool
 					string capitalizedTitle = "Capitalized title: ";
 					Console.Write(capitalizedTitle);
 					Console.ForegroundColor = ConsoleColor.Green;
-
 					coordinateCursorY += 3;
 					Console.WriteLine(HeaderEditor(title));
 					Console.ResetColor();
