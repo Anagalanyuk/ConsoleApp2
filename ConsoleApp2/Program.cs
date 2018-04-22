@@ -83,7 +83,7 @@ namespace TitleCapitalizationTool
 					Console.ResetColor();
 					Console.Write("Capitalized Title: ");
 					Console.ForegroundColor = ConsoleColor.Green;
-					Console.Write(HeaderEditor(titles[0]));
+					Console.Write(HeaderEditor(titles[i]));
 					Console.WriteLine();
 					Console.ResetColor();
 					Console.WriteLine();
